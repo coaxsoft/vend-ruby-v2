@@ -1,11 +1,13 @@
 # Products
-# Resources related to the products in the API.
-# https://developers.Vend.com/docs/versions/1-0-0-beta/resources/products
+# https://docs.vendhq.com/reference#products-2
 
 module Vend
   class Product < Resource
-    include Vend::ResourceActions.new uri: 'products/%d'
+    include Vend::ResourceActions.new uri: 'products'
 
-    property :id
+    def self.inventory(resource_id, params = {})
+      include Vend::ResourceActions.new uri: "products/#{resource_id}/inventory"
+      get path.build, params
+    end
   end
 end

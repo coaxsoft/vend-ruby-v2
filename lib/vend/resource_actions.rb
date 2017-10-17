@@ -42,10 +42,6 @@ module Vend
         raise ArgumentError if resource_id.nil?
         delete path.build(resource_id), params
       end
-
-      def destroy_all(params = {})
-        delete path.build, params
-      end
     end
   end
 end

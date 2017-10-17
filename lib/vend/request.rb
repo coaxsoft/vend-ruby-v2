@@ -8,20 +8,12 @@ module Vend
       @uri = uri
     end
 
-    # This takes the @uri and inserts the keys to form a path.
-    # To start we make sure that for nil/numeric values, we wrap those into an
-    # array. We then scan the string for %d and %s to find the number of times
-    # we possibly need to insert keys into the URI. Next, we check the size of
-    # the keys array, if the keys size is less than the number of possible keys
-    # in the URI, we will remove the trailing %d or %s, then remove the
-    # trailing /. We then pass the keys into the uri to form the path.
-    # ex. foo/%d/bar/%d => foo/1/bar/2
-    def build(keys = [])
-      keys = [] if keys.nil?
-      keys = [keys] if keys.is_a? Numeric
-      ids = uri.scan('%d').count + uri.scan('%s').count
-      str = ids > keys.size ? uri.chomp('%d').chomp('%s').chomp('/') : uri
-      (str % keys).chomp('/')
+    def build(key = nil)
+      if key
+        "#{uri}/#{key}"
+      else
+        uri
+      end
     end
 
     def to_s
