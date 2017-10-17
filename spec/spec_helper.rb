@@ -1,11 +1,6 @@
-require "bundler/setup"
-require "vend/ruby/v2"
+require 'simplecov'
+SimpleCov.start { add_filter '/spec/' }
 
-RSpec.configure do |config|
-  # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
-
-  config.expect_with :rspec do |c|
-    c.syntax = :expect
-  end
-end
+require 'rspec'
+require 'vend'
+require 'awesome_print'
