@@ -12,7 +12,7 @@ module Vend
     end
 
     def included(base)
-      base.send(:include, Request.new(options[:uri]))
+      base.send(:include, Request.new(options[:api_version], options[:uri]))
       base.extend(ClassMethods)
       options[:disable_methods] ||= []
       methods = ClassMethods.public_instance_methods & options[:disable_methods]
