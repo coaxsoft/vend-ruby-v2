@@ -6,9 +6,9 @@ require 'vend/connection'
 require 'vend/exception'
 require 'vend/request'
 require 'vend/resource_actions'
-require 'vend/subresource_actions'
 require 'vend/middleware/auth'
 require 'vend/middleware/http_exception'
+require 'vend/oauth2/auth_code'
 require 'vend/resources/resource'
 
 module Vend
