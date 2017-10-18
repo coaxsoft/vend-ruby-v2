@@ -141,7 +141,7 @@ RSpec.describe Vend::Request do
 end
 
 describe Vend::PathBuilder do
-  let(:uri) { 'bar/%d' }
+  let(:uri) { 'bar' }
   before do
     @path_builder = Vend::PathBuilder.new uri
   end
