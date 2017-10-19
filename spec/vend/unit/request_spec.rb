@@ -2,7 +2,7 @@ RSpec.describe Vend::Request do
   before do
     module Vend
       class DummyClass
-        include Request.new 'foo/%d'
+        include Request.new('0.9', 'foo/%d')
       end
     end
     @klass = Vend::DummyClass
@@ -81,7 +81,7 @@ RSpec.describe Vend::Request do
         before do
           module Vend
             class DummyClass
-              include Request.new 'foo/%d'
+              include Request.new(0.9, 'foo/%d')
               def initialize(params)
                 @params = params
               end
