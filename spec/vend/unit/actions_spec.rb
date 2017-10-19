@@ -2,7 +2,7 @@ RSpec.describe Vend::ResourceActions do
   before do
     module Vend
       class DummyClass
-        include ResourceActions.new(uri: 'http://foo.bar')
+        include ResourceActions.new(api_version: '0.9', uri: 'http://foo.bar')
       end
     end
     @klass = Vend::DummyClass

@@ -6,17 +6,17 @@ module Vend
     include Vend::ResourceActions.new api_version: '0.9', uri: 'webhooks'
 
     def self.create(params = {})
-      response = params[:connection].post do |req|
-        req.url '/api/webhooks'
-        req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-        req.body = "data=#{params[:data].to_json}"
-      end
-      JSON.parse(response.body, symbolize_names: true)
+      make_urlencoded_request(:post, '/api/webhooks', params)
     end
 
     def self.update(resource_id, params = {})
-      response = params[:connection].put do |req|
-        req.url "/api/webhooks/#{resource_id}"
+      make_urlencoded_request(:put, "/api/webhooks/#{resource_id}", params)
+    end
+
+    def self.make_urlencoded_request(method, url, params)
+      connection = params[:connection] || Vend.api
+      response = connection.send(method) do |req|
+        req.url url
         req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
         req.body = "data=#{params[:data].to_json}"
       end
