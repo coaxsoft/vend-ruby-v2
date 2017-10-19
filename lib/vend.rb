@@ -1,3 +1,4 @@
+require 'pry'
 require 'hashie'
 require 'faraday_middleware'
 require 'vend/version'

@@ -49,7 +49,7 @@ module Vend
 
       def delete(path, params = {})
         response = raw_request(:delete, path, params)
-        response.body
+        build_response_object(response)
       end
 
       def post(path, params = {})
