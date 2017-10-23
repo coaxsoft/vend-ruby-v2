@@ -6,8 +6,7 @@ module Vend
     include Vend::ResourceActions.new uri: 'products'
 
     def self.inventory(resource_id, params = {})
-      include Vend::ResourceActions.new uri: "products/#{resource_id}/inventory"
-      get path.build, params
+      get "2.0/products/#{resource_id}/inventory", params
     end
   end
 end
