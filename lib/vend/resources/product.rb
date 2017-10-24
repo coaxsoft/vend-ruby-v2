@@ -8,5 +8,9 @@ module Vend
     def self.inventory(resource_id, params = {})
       get "2.0/products/#{resource_id}/inventory", params
     end
+
+    def self.update_inventory(params = {})
+      post 'products', params
+    end
   end
 end
