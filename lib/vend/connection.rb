@@ -7,7 +7,7 @@ module Vend
     def self.build(config)
       Faraday.new(url: config.api_url) do |conn|
         conn.options[:timeout] = 120
-        conn.request :json
+        conn.request config[:request_type] || :json
         conn.headers = HEADERS
         conn.use Vend::Middleware::Auth, config
         conn.use Vend::Middleware::HttpException

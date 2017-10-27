@@ -20,5 +20,14 @@ module Vend
     def self.update_inventory(params = {})
       post 'products', params
     end
+
+    def self.image_upload(resource_id, params)
+      connection = params[:connection] || Vend.api
+      response = connection.post do |req|
+        req.url "2.0/products/#{resource_id}/actions/image_upload"
+        req.body = { image: params[:image] }
+      end
+      JSON.parse(response.body, symbolize_names: true)
+    end
   end
 end
