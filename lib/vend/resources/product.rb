@@ -27,7 +27,7 @@ module Vend
         req.url "2.0/products/#{resource_id}/actions/image_upload"
         req.body = { image: params[:image] }
       end
-      JSON.parse(response.body, symbolize_names: true)
+      Oj.load(response.body, symbol_keys: true)
     end
   end
 end

@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'hashie', '~> 3.4'
   spec.add_dependency 'jwt', '~> 1.5.4'
   spec.add_dependency 'oauth2', '~> 1.4.0'
+  spec.add_dependency 'oj'
 end
