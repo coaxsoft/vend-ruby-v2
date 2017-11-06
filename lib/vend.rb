@@ -1,6 +1,7 @@
 require 'pry'
 require 'hashie'
 require 'faraday_middleware'
+require 'oj'
 require 'vend/version'
 require 'vend/config'
 require 'vend/connection'

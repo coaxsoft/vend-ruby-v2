@@ -75,7 +75,7 @@ module Vend
 
       def parse(json)
         return [] if json.empty?
-        JSON.parse(json, symbolize_names: true)
+        Oj.load(json, symbol_keys: true)
       end
     end
   end

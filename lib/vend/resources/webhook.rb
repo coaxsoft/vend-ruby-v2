@@ -20,7 +20,7 @@ module Vend
         req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
         req.body = "data=#{params[:data].to_json}"
       end
-      JSON.parse(response.body, symbolize_names: true)
+      Oj.load(response.body, symbol_keys: true)
     end
   end
 end
