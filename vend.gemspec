@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name = 'vend-ruby-v2'
   spec.version = Vend::VERSION
   spec.platform = Gem::Platform::RUBY
-  spec.required_ruby_version = '>= 2.0.0'
+  spec.required_ruby_version = '>= 3.0.0'
   spec.license = 'MIT'
 
   spec.authors       = ['Yurkiv Misha']
