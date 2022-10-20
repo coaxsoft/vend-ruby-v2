@@ -1,8 +1,9 @@
+require 'faraday'
 require 'vend/exception'
 
 module Vend
   module Middleware
-    class HttpException < Faraday::Response::Middleware
+    class HttpException < Faraday::Middleware
       include Vend::HttpErrors
 
       def on_complete(env)
