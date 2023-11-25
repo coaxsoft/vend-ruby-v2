@@ -1,4 +1,3 @@
-require 'pry'
 require 'hashie'
 require 'oj'
 require 'vend/version'
