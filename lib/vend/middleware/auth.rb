@@ -1,3 +1,5 @@
+require 'faraday'
+
 module Vend
   module Middleware
     class Auth < Faraday::Middleware
